@@ -13,7 +13,7 @@
 
             <!-- Заголовок с номером варианта -->
             <TextBlock Grid.Row="0" Text="🏭 Производственные цеха (Вариант 18)" 
-                      FontSize="20" FontWeight="Bold" Margin="10" Background="LightGreen" Padding="10"/>
+                      FontSize="20" FontWeight="Bold" Margin="10" Padding="10"/>
 
             <TabControl Grid.Row="1" Margin="10">
                 <!-- Вкладка цехов -->
@@ -45,7 +45,7 @@
 
                             <Button Content="Запустить производство" 
                                     Command="{Binding ProductionVM_18.StartProductionCommand}"
-                                    Background="Orange" Width="150" Height="30"/>
+                                    Width="150" Height="30"/>
                         </StackPanel>
 
                         <!-- Форма добавления цеха -->
@@ -131,7 +131,7 @@
             </TabControl>
 
             <!-- Статус бар -->
-            <StatusBar Grid.Row="2" Background="LightGreen">
+            <StatusBar Grid.Row="2">
                 <TextBlock Text="{Binding ProductionVM_18.StatusMessage}" FontWeight="Bold"/>
             </StatusBar>
         </Grid>

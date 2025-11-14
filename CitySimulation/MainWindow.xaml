@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:emergency="clr-namespace:CitySimulation.Views.EmergencyService"
         xmlns:foreign="clr-namespace:CitySimulation.Views.ForeignRelations"
-        xmlns:extraction="clr-namespace:CitySimulation.Views.ResourceExtraction_17"
         xmlns:production="clr-namespace:CitySimulation.Views.Production_18"
+        xmlns:processing="clr-namespace:CitySimulation.Views.ResourceProcessing_21"
         Title="City Simulation Project" Height="800" Width="1200">
 
     <Grid>
         <TabControl>
-            <!-- Существующие вкладки -->
             <TabItem Header="МЧС (8)">
                 <emergency:EmergencyServiceView/>
             </TabItem>
@@ -18,13 +17,12 @@
                 <foreign:ForeignRelationsView/>
             </TabItem>
 
-            <!-- Новые вкладки для вариантов 17 и 18 -->
-            <TabItem Header="Добыча ресурсов (17)">
-                <extraction:ResourceExtractionView/>
-            </TabItem>
-
             <TabItem Header="Производственные цеха (18)">
                 <production:ProductionView/>
+            </TabItem>
+
+            <TabItem Header="Переработка ресурсов (21)">
+                <processing:ResourceProcessingView/>
             </TabItem>
         </TabControl>
     </Grid>
