@@ -1,18 +1,31 @@
-﻿using CitySimulation.ViewModels.Base;
-using CitySimulation.ViewModels.ForeignRelations;
-using CitySimulation.ViewModels.EmergencyService;
+﻿using System.Windows.Input;
 
 namespace CitySimulation.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : BaseViewModel
     {
-        public ForeignRelationsViewModel ForeignRelationsVM { get; }
-        public EmergencyServiceViewModel EmergencyServiceVM { get; }
+        private BaseViewModel _currentViewModel;
 
         public MainViewModel()
         {
-            ForeignRelationsVM = new ForeignRelationsViewModel();
-            EmergencyServiceVM = new EmergencyServiceViewModel();
+            ResourcesViewModel = new ResourcesViewModel();
+            UtilitiesViewModel = new UtilitiesViewModel();
+            CurrentViewModel = ResourcesViewModel;
+
+            ShowResourcesCommand = new RelayCommand(() => CurrentViewModel = ResourcesViewModel);
+            ShowUtilitiesCommand = new RelayCommand(() => CurrentViewModel = UtilitiesViewModel);
         }
+
+        public ResourcesViewModel ResourcesViewModel { get; }
+        public UtilitiesViewModel UtilitiesViewModel { get; }
+
+        public BaseViewModel CurrentViewModel
+        {
+            get => _currentViewModel;
+            set => SetProperty(ref _currentViewModel, value);
+        }
+
+        public ICommand ShowResourcesCommand { get; }
+        public ICommand ShowUtilitiesCommand { get; }
     }
 }
