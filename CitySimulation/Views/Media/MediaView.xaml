@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="CitySimulation.Views.Media.MediaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Средства массовой информации" 
+                   FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+
+        <ListView Grid.Row="1" ItemsSource="{Binding MediaBuildings}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="120"/>
+                    <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding MediaType}" Width="100"/>
+                    <GridViewColumn Header="Охват" DisplayMemberBinding="{Binding AudienceCoverage}" Width="80"/>
+                    <GridViewColumn Header="Влияние" DisplayMemberBinding="{Binding InfluencePower}" Width="80"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,10,0,0">
+            <Border Background="LightGreen" Padding="10" Margin="0,0,10,0">
+                <TextBlock Text="{Binding TotalInfluence, StringFormat='Общее влияние: {0:F2}'}" 
+                           FontWeight="Bold"/>
+            </Border>
+            <Border Background="LightYellow" Padding="10">
+                <TextBlock Text="{Binding MigrationImpact, StringFormat='Влияние на миграцию: +{0}'}" 
+                           FontWeight="Bold"/>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>
